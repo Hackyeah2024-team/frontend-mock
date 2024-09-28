@@ -15,16 +15,23 @@ function addDay(date: Date, n: number) {
 export default function StudentGrades() {
   const d: Date = new Date('2022-01-01')
 
-  return <div className="flex flex-col justify-center items-center">
-      <div className="mt-8 grid grid-rows-7 grid-flow-col gap-[4px] w-11/12">
-        {Array.from({ length: 3 }).map((e,i) => (
-          <div key={i}/>
-        ))}
-        {Array.from({ length: 365 }).map((e,i) => (
-          <AttendanceDatacell key={i+3} d={addDay(d,i)} />
-        ))}
+  return <div className="flex flex-row justify-center items-center">
+        <div className="mt-8 grid grid-rows-7 grid-flow-col gap-[4px] w-11/12">
+            <p>PON</p>
+            <p>WT</p>
+            <p>ŚR</p>
+            <p>CZW</p>
+            <p>PT</p>
+            <p>SOB</p>
+            <p>ND</p>
+          {Array.from({ length: 3 }).map((e,i) => (
+            <div key={i}/>
+          ))}
+          {Array.from({ length: 365 }).map((e,i) => (
+            <AttendanceDatacell key={i+3} d={addDay(d,i)} />
+          ))}
+        </div>
       </div>
-  </div>
 }
 
 function fetchAttendance(){
