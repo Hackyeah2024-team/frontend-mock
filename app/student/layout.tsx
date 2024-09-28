@@ -6,7 +6,6 @@ import Link from "next/link";
 import {
   CircleUser,
   HomeIcon,
-  Package2,
   MenuIcon,
   SunIcon,
   MoonIcon,
@@ -20,13 +19,6 @@ import {
 } from "lucide-react";
 // import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -53,8 +45,11 @@ export default function StudentAppShell({
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full flex-col gap-2">
           <div className="flex h-[40px] items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="flex items-center gap-2 font-semibold">
-              <span className=""><Image src={tablogo} alt="Tabular logo" height={90}/></span>
+            <Link href="/" className="flex justify-center gap-2 font-semibold">
+            <span className="relative">
+              <Image src={tablogo} alt="Tabular logo" height={90}/>
+              <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">Student</span>
+            </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8" onClick={() => {}}>
               {true ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
