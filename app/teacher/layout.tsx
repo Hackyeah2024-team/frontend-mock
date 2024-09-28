@@ -1,31 +1,22 @@
 "use client"; // Same as in app/layout.tsx
-
+import Image from 'next/image';
+import tablogo from '@/lib/tabular.png'
 import React from "react";
 import Link from "next/link";
 import {
   CircleUser,
   HomeIcon,
-  Package2,
   MenuIcon,
   SunIcon,
   MoonIcon,
-  GraduationCapIcon,
   CalendarDaysIcon,
   MailIcon,
-  PercentIcon,
-  ClipboardIcon,
-  BookOpenTextIcon,
-  TriangleAlertIcon
+  UsersIcon,
+  PresentationIcon,
+  SettingsIcon
 } from "lucide-react";
 // import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,13 +39,15 @@ export default function StudentAppShell({
   // const { isDarkMode, toggle: toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+    <div className="grid min-h-screen max-h-screen overflow-hidden w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full flex-col gap-2">
           <div className="flex h-[40px] items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
-              <Package2 className="h-6 w-6" />
-              <span className="">Logo tutaj</span>
+              <span className="relative">
+                <Image src={tablogo} alt="Tabular logo" height={90}/>
+                <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">Teacher</span>
+              </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8" onClick={() => {}}>
               {true ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
@@ -130,13 +123,11 @@ function SideMenu({
   return (
     <>
       <MenuLink href="/teacher" icon={<HomeIcon className="w-5 h-5" />} mobile={mobile}>Podsumowanie</MenuLink>
-      <MenuLink href="/teacher/learn" icon={<BookOpenTextIcon className="w-5 h-5" />} mobile={mobile}>Nauka</MenuLink>
-      <MenuLink href="/teacher/grades" icon={<GraduationCapIcon className="w-5 h-5" />} mobile={mobile}>Oceny</MenuLink>
-      <MenuLink href="/teacher/timetable" icon={<CalendarDaysIcon className="w-5 h-5" />} mobile={mobile}>Plan lekcji</MenuLink>
+      <MenuLink href="/teacher/timetable" icon={<CalendarDaysIcon className="w-5 h-5" />} mobile={mobile}>Plan zajęć</MenuLink>
+      <MenuLink href="/teacher/classes" icon={<PresentationIcon className="w-5 h-5" />} mobile={mobile}>Klasy</MenuLink>
+      <MenuLink href="/teacher/students" icon={<UsersIcon className="w-5 h-5" />} mobile={mobile}>Uczniowie</MenuLink>
       <MenuLink href="/teacher/messages" icon={<MailIcon className="w-5 h-5" />} mobile={mobile}>Wiadomości</MenuLink>
-      <MenuLink href="/teacher/attendance" icon={<PercentIcon className="w-5 h-5" />} mobile={mobile}>Frekwencja</MenuLink>
-      <MenuLink href="/teacher/homework" icon={<ClipboardIcon className="w-5 h-5" />} mobile={mobile}>Zadania domowe</MenuLink>
-      <MenuLink href="/teacher/behavior" icon={<TriangleAlertIcon className="w-5 h-5" />} mobile={mobile}>Zachowanie</MenuLink>
+      <MenuLink href="/teacher/management" icon={<SettingsIcon className="w-5 h-5" />} mobile={mobile}>Zarządzanie</MenuLink>
     </>
   );
 }

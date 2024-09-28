@@ -62,14 +62,47 @@ async function fetchTimetable(week: Date): Promise<any> {
   };
 }
 
+// eslint-disable-next-line
+async function fetchTeacherTimetable(week: Date): Promise<any> {
+  return {
+    monday: [
+      { class_: "4A", id: "maths", hours: "8:00 - 8:45" },
+      { class_: "2C", id: "physics", hours: "10:50 - 11:35" },
+      {
+        class_: "2C",
+        id: "physics",
+        hours: "11:40 - 12:25",
+        events: [{ kind: "quiz", topic: "Obliczenia kwantowe" }],
+      },
+    ],
+    tuesday: [
+      { class_: "4A", id: "maths", hours: "8:00 - 8:45" },
+      { class_: "1D", id: "maths", hours: "13:00 - 13:45" },
+    ],
+    wednesday: [
+      { class_: "4A", id: "maths", hours: "8:00 - 8:45" },
+      { class_: "4A", id: "maths", hours: "9:00 - 9:45" },
+      { class_: "2C", id: "physics", hours: "10:00 - 10:45" },
+    ],
+    thursday: [
+      { class_: "2C", id: "physics", hours: "8:00 - 8:45" },
+      { class_: "1D", id: "maths", hours: "12:00 - 12:45" },
+      { class_: "1D", id: "maths", hours: "13:00 - 13:45" },
+    ],
+    friday: [{ class_: "4A", id: "maths", hours: "13:00 - 13:45" }],
+  };
+}
+
 export default function Timetable({
   week,
+  isTeacher = false,
 }: Readonly<{
   week: Date;
+  isTeacher?: boolean;
 }>) {
   const { isLoading, data: timetable } = useQuery({
     queryKey: [],
-    queryFn: () => fetchTimetable(week),
+    queryFn: () => (isTeacher ? fetchTeacherTimetable : fetchTimetable)(week),
   });
 
   if (isLoading) {
@@ -92,6 +125,7 @@ export default function Timetable({
                   subject={subj.id}
                   hours={subj.hours}
                   events={subj.events}
+                  class_={subj.class_}
                 />
               ))}
             </section>
