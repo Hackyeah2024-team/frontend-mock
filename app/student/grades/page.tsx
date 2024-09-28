@@ -1,3 +1,5 @@
+import { Grades } from "@/components/student/grades";
+
 export default function StudentGrades() {
-  return <p>Yay</p>;
+  return <Grades></Grades>;
 }
