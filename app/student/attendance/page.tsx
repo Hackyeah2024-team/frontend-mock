@@ -1,7 +1,6 @@
 function addDay(date: Date, n: number) {
   let lDate = new Date(date);
   lDate.setDate(lDate.getDate() + n);
-  console.log(lDate)
   return lDate;
 }
 
@@ -9,11 +8,16 @@ function addDay(date: Date, n: number) {
 export default function StudentGrades() {
   const d: Date = new Date('2022-01-01')
 
-  return <div className="flex flex-col items-center justify-center">
-    {Array.from({ length: 10 }).map((e,i) => (
-      <AttendanceRow key={i} d={addDay(d, i)}/>
-    ))}
-  </div>;
+  return <div className="flex w-full justify-center items-center">
+    <div className="grid grid-rows-7 grid-flow-col  w-11/12">
+      {Array.from({ length: 3 }).map((e,i) => (
+        <div />
+      ))}
+      {Array.from({ length: 365 }).map((e,i) => (
+        <AttendanceDatacell key={i} d={addDay(d,i)} />
+      ))}
+    </div>
+  </div>
 }
 
 function fetchAttendance(){
@@ -30,25 +34,11 @@ function fetchAttendance(){
     }
 }
 
+//    <p className="m-1">{d.toISOString().split('T')[0]}</p>
 
+function AttendanceDatacell({d}: {d: Date}){
+  const date_string = d.toISOString().split('T')[0];
+  const is_asbest = fetchAttendance()['dates'].includes(date_string)
 
-
-function AttendanceRow({ d }: { d: Date}) {
-  return <div className="flex flex-row w-64 justify-between">
-    <p className="m-1">{d.toISOString().split('T')[0]}</p>
-    <div className="flex flex-row">
-    {Array.from({ length: 5 }).map((e,i) => (
-      <AttendanceDatacell key={i} d={d.toISOString().split('T')[0]}/>
-  ))}
-  </div>
-  </div>;
-}
-
-function AttendanceDatacell({d}: {d:string}){
-  if(fetchAttendance()['dates'].includes(d)){
-    return <div className="w-8 h-8 m-1 flex items-center justify-center bg-red-500"></div>
-  }else{
-    return <div className="w-8 h-8 m-1 flex items-center justify-center bg-green-500"></div>
-
-  }
+   return <div className={`grow aspect-square m-[2px] ${is_asbest ? "bg-red-700" : "bg-green-500"}`} />
 }
