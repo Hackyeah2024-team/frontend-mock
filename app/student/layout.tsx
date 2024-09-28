@@ -193,7 +193,7 @@ function MenuLink({
         mobile
           ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground"
           : "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary",
-        pathname === href ? "text-primary bg-muted" : "text-muted-foreground",
+        pathname === href ? "text-foreground bg-muted" : "text-muted-foreground",
       )}
     >
       {icon}
