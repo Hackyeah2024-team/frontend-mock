@@ -16,7 +16,7 @@ export default function StudentGrades() {
   const d: Date = new Date('2022-01-01')
 
   return <div className="flex flex-row justify-center items-center">
-        <div className="mt-8 grid grid-rows-7 grid-flow-col gap-[4px] w-11/12">
+        <div className="grid grid-rows-7 grid-flow-col gap-1 w-11/12">
             <p>PON</p>
             <p>WT</p>
             <p>ŚR</p>
