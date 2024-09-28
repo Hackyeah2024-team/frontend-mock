@@ -13,7 +13,7 @@ async function fetchTimetable(week: Date): Promise<any> {
       {
         id: "physics",
         hours: "9:55 - 10:40",
-        events: [{ kind: "test", topic: "astronomy" }],
+        events: [{ kind: "test", topic: "Astronomia" }],
       },
       { id: "literature", hours: "10:50 - 11:35" },
       { id: "history", hours: "11:40 - 12:25" },

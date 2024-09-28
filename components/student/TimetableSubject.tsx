@@ -29,7 +29,7 @@ export default function TimetableSubject({
         <h1 className="font-bold text-nowrap overflow-hidden truncate">
           {sub.title}
         </h1>
-        <p className="text-gray-300 text-sm">{hours}</p>
+        <p className="text-muted-foreground text-sm">{hours}</p>
       </div>
 
       {events.length > 0 ? (
