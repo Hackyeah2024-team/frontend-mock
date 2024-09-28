@@ -35,7 +35,7 @@ export default function GradeDetails({
   return (
     <Dialog>
     <DialogTrigger asChild>
-        <Badge className="bg-primary" variant="outline">{grade.grade}</Badge>
+        <Badge className="bg-primary cursor-pointer" variant="outline">{grade.grade}</Badge>
     </DialogTrigger>
     <DialogContent >
       <DialogHeader>
