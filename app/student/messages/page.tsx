@@ -1,7 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { 
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -51,14 +57,18 @@ function MessageCard({ author, title, content }: Message) {
   return (
     <>
       <Card
-        className="flex flex-col bg-slate-800 p-2 rounded-xl"
+        className="flex flex-col bg-muted/40 p-2 rounded-xl"
         onClick={() => {
           setOpened(true);
         }}
       >
-        <h1 className="text-4xl">{title}</h1>
-        <p className="mt-4">{author}</p>
-        <p>{content.split(" ").slice(0, 5).join(" ")}...</p>
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{author}</CardDescription>
+        </CardHeader>
+        <CardFooter>
+          <p>{content.split(" ").slice(0, 5).join(" ")}...</p>
+        </CardFooter>
       </Card>
       <Dialog open={opened} onOpenChange={() => setOpened(false)}>
         <DialogContent className="max-w-4xl w-full min-h-[32rem] h-auto">
