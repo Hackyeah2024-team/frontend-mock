@@ -34,10 +34,10 @@ export default function TimetableSubject({
 
       {events.length > 0 ? (
         <section className="flex flex-col gap-y-1 min-w-16 w-1/3">
-          {events.map((event) => (
-            <Tooltip>
+          {events.map((event, idx) => (
+            <Tooltip key={idx}>
               <TooltipTrigger className="flex-1">
-                <p className="bg-gray-800 rounded-md px-2 py-1 h-full text-center cursor-pointer overflow-hidden truncate">
+                <p className="bg-secondary text-black rounded-md px-2 py-1 h-full text-center cursor-pointer overflow-hidden truncate">
                   {event.kind === "test" ? "sprawdzian" : "kartkówka"}
                 </p>
               </TooltipTrigger>
