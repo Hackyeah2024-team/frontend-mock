@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/tooltip"
 
 import { Badge } from "@/components/ui/badge"
+
+import GradeDetails from "./GradeDetails";
   
   const subjects = [
     {
@@ -311,21 +313,7 @@ import { Badge } from "@/components/ui/badge"
               <TableCell className="font-medium text-center border-r-2">{subject.name}</TableCell>
               <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
                 {subject.grades.filter(grade => grade.semester == "1").map((grade, idx) => (
-                    <TooltipProvider key={idx}>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Badge className="bg-primary" variant="outline">{grade.grade}</Badge>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <div className="p-2">
-                                    <p>Tytuł: {grade.desc}</p>
-                                    <p>Opis: {grade.type.desc}</p>
-                                    <p>Waga: {grade.type.weight}</p>
-                                    <p>Data: {new Date(grade.type.date).toLocaleString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric'})}</p>
-                                </div>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider> 
+                    <GradeDetails key={"item"}  grade={grade} teacher={subject.teacher} subject={subject.name}></GradeDetails>
                 ))}
               </TableCell>
               <TableCell className="font-medium text-center">
@@ -333,26 +321,12 @@ import { Badge } from "@/components/ui/badge"
               </TableCell>
               <TableCell className="font-medium text-center border-r-2">
                 {subject.grades.filter(grade => grade.semester == "IR").map(midgrade =>
-                    <Badge className="bg-secondary mx-1" variant="outline">{midgrade.grade}</Badge>
+                    <Badge key={"item"} className="bg-secondary text-black mx-1" variant="outline">{midgrade.grade}</Badge>
                 )}
               </TableCell>
               <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
                 {subject.grades.filter(grade => grade.semester == "2").map(grade => (
-                    <TooltipProvider key={idx}>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Badge className="bg-primary" variant="outline">{grade.grade}</Badge>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <div className="p-2">
-                                <p>Tytuł: {grade.desc}</p>
-                                <p>Opis: {grade.type.desc}</p>
-                                <p>Waga: {grade.type.weight}</p>
-                                <p>Data: {new Date(grade.type.date).toLocaleString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric'})}</p>
-                            </div>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider> 
+                    <GradeDetails key={"item"} grade={grade} teacher={subject.teacher} subject={subject.name}></GradeDetails>
                 ))}
               </TableCell>
               <TableCell className="font-medium text-center border-r-2">
@@ -363,7 +337,7 @@ import { Badge } from "@/components/ui/badge"
               </TableCell>
               <TableCell className="text-center">
                 {subject.grades.filter(grade => grade.semester == "R").map(endgrade =>
-                    <Badge className="bg-secondary mx-1" variant="outline">{endgrade.grade}</Badge>
+                    <Badge key={"item"} className="bg-secondary text-black mx-1" variant="outline">{endgrade.grade}</Badge>
                 )}
               </TableCell>
             </TableRow>
