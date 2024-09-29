@@ -12,7 +12,6 @@ export default function StudentHome()
   return (
     <div>
       <div className="flex justify-center">
-">
         <Card className="w-1/2 m-4 bg-primary/90 ">
           <CardContent className="flex flex-col gap-y-2">
           <h1 className="bg-primary rounded-md mt-4 my-2 px-3 py-2 font-bold w-full text-center">
