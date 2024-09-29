@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import Grade from "../student/GradeDetails"
 
+
 export default function StudentsTable({data} : {data: {grade: Grade, teacher: string, subject: string, student: string, problem: string}[]}) {
   return (
     <Table>
@@ -40,7 +41,7 @@ export default function StudentsTable({data} : {data: {grade: Grade, teacher: st
                 {grade.grade <= 4 ? <Badge className="bg-primary">+1</Badge>:""}
               </div>
             </TableCell>
-            <TableCell className="text-center max-w-8">-</TableCell>
+            <TableCell className="text-center max-w-8">{grade.grade}</TableCell>
           </TableRow>
         ))}
       </TableBody>
