@@ -20,7 +20,7 @@ export default function HackYeahBanner() {
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Link href="https://hackyeah.pl/">
-          <Button size="sm" className="w-full">
+          <Button size="sm" className="transition ease-in-out duration-500 w-full bg-primary hover:bg-secondary hover:text-black border-sky-200 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]">
             Visit Event Website
           </Button>
         </Link>
