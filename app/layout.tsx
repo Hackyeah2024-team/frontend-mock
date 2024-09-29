@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import QueryClientWrapper from "@/components/common/QueryClientWrapper";
+import MobileProtection from "@/components/common/MobileProtection";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
+        {/* This component disables viewing website on too small devices as It does not work on those. */}
+        <MobileProtection />
         <QueryClientWrapper>{children}</QueryClientWrapper>
       </body>
     </html>
