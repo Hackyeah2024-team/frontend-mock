@@ -1,3 +1,5 @@
+import { LevelChart } from "@/components/teacher/LevelChart";
+
 export default function TeacherHome() {
-  return <p>Hi! This is teacher home page.</p>;
+  return <LevelChart />;
 }
