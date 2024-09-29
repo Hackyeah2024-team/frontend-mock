@@ -50,7 +50,7 @@ export default function StudentHome()
                 />
           </CardContent>
         </Card>
-        <Card className="m-4 bg-muted/40 w-1/5">
+        <Card className="m-4 bg-muted/40 w-1/4">
           <CardContent>
             <h1 className="bg-primary rounded-md mt-4 mb-4 px-3 py-2 font-bold w-full text-center">
                 Najnowsze oceny
@@ -91,7 +91,7 @@ export default function StudentHome()
             </div>
           </CardContent>
         </Card>
-        <Card className="w-1/4 m-4 bg-muted/40">
+        <Card className="w-1/3 m-4 bg-muted/40">
           <CardContent className="flex flex-col gap-y-2">
           <h1 className="bg-primary rounded-md mt-4 my-2 px-3 py-2 font-bold w-full text-center">
               Nauka
