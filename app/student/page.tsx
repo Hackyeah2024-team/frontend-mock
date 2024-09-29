@@ -74,31 +74,33 @@ export default function StudentHome() {
             </p>
             <div className="flex items-center p-4 rounded-lg bg-muted/20 shadow-md w-full max-w-md">
               <a
-                className="ml-4 w-2/3 flex cursor-pointer"
+                className="ml-4 w-2/3 flex flex-row items-center cursor-pointer"
                 href="/student/learn"
               >
-                <p className="text-xl font-medium text-white mr-2">Ułamki</p>
-                <ShuffleIcon className="w-4 h-4" />
+                <p className="text-xl font-medium text-white mr-2 text-muted-foreground">
+                  Ułamki
+                </p>
+                <ShuffleIcon className="w-4 h-4 text-muted-foreground" />
               </a>
             </div>
             <div className="flex items-center p-4 rounded-lg bg-muted/20 shadow-md w-full max-w-md">
               <a
-                className="ml-4 w-2/3 flex cursor-pointer"
+                className="ml-4 w-2/3 flex flex-row items-center cursor-pointer"
                 href="/student/learn"
               >
                 <p className="text-xl font-medium text-white mr-2">Antyk</p>
-                <ShuffleIcon className="w-4 h-4" />
+                <ShuffleIcon className="w-4 h-4 text-muted-foreground" />
               </a>
             </div>
             <div className="flex items-center p-4 rounded-lg bg-muted/20 shadow-md w-full max-w-md">
               <a
-                className="ml-4 w-2/3 flex cursor-pointer"
+                className="ml-4 w-2/3 flex flex-row items-center cursor-pointer"
                 href="/student/learn"
               >
                 <p className="text-xl font-medium text-white mr-2">
                   Past perfect
                 </p>
-                <ShuffleIcon className="w-4 h-4" />
+                <ShuffleIcon className="w-4 h-4 text-muted-foreground" />
               </a>
             </div>
           </CardContent>
