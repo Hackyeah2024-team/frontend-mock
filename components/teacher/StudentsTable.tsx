@@ -7,6 +7,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog";
+
 import GradeDetails from "../student/GradeDetails";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
@@ -37,7 +48,23 @@ export default function StudentsTable({data} : {data: {grade: Grade, teacher: st
             </TableCell>
             <TableCell className="max-w-12">
               <div className="flex flex-row items-center gap-x-2">
-                <Badge className="bg-muted">{problem}</Badge>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Badge className="bg-muted cursor-pointer">{problem}</Badge>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>
+                      <h1>{problem}</h1>
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-2 py-4">
+                    <p>
+                      <span className="font-bold">Opis problemu</span>: Uczniowie mają problem z obliczaniem delty i stosowaniem wzoru na pierwiastki. Często popełniają błędy w wyborze metody rozwiązywania i w obliczeniach.
+                    </p>
+                  </div>
+                </DialogContent>
+              </Dialog>
                 {grade.grade <= 4 ? <Badge className="bg-primary">+1</Badge>:""}
               </div>
             </TableCell>
