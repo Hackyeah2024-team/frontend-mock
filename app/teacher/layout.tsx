@@ -29,6 +29,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import HackYeahBanner from '@/components/common/Banner';
 // import { useDarkMode } from "usehooks-ts";
 
 export default function StudentAppShell({
@@ -58,6 +59,9 @@ export default function StudentAppShell({
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <SideMenu mobile={false} />
             </nav>
+          </div>
+          <div className="mt-auto p-4">
+            <HackYeahBanner />
           </div>
         </div>
       </div>
