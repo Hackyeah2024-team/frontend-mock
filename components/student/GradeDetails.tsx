@@ -16,7 +16,7 @@ interface Type {
   date: string;
 }
 
-interface Grade {
+export interface Grade {
   grade: number;
   desc: string;
   semester: string;
