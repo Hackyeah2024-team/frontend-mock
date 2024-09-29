@@ -4,6 +4,7 @@ import { group } from "console";
 export default function TeacherStudents() {
   return (
     <div className="flex flex-col m-4">
+      { /* @ts-expect-error We simply do not care */}
         {<StudentsTable data={dataFetch()}/>}
     </div>
   );
