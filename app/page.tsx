@@ -1,5 +1,3 @@
-import Image from "next/image";
-import tabularLogo from "@/lib/tabular.png";
 import {
   Card,
   CardContent,

@@ -1,6 +1,6 @@
 "use client"; // Same as in app/layout.tsx
-import Image from 'next/image';
-import tablogo from '@/lib/tabular.png'
+import Image from "next/image";
+import tablogo from "@/lib/tabular.png";
 import React from "react";
 import Link from "next/link";
 import {
@@ -15,7 +15,7 @@ import {
   PercentIcon,
   ClipboardIcon,
   BookOpenTextIcon,
-  TriangleAlertIcon
+  TriangleAlertIcon,
 } from "lucide-react";
 // import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import HackYeahBanner from '@/components/common/Banner';
+import HackYeahBanner from "@/components/common/Banner";
 // import { useDarkMode } from "usehooks-ts";
 
 export default function StudentAppShell({
@@ -47,13 +47,24 @@ export default function StudentAppShell({
         <div className="flex h-full flex-col gap-2">
           <div className="flex h-[40px] items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex justify-center gap-2 font-semibold">
-            <span className="relative">
-              <Image src={tablogo} alt="Tabular logo" height={90}/>
-              <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">Student</span>
-            </span>
+              <span className="relative">
+                <Image src={tablogo} alt="Tabular logo" height={90} />
+                <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">
+                  Student
+                </span>
+              </span>
             </Link>
-            <Button variant="outline" size="icon" className="ml-auto h-8 w-8" onClick={() => {}}>
-              {true ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
+            <Button
+              variant="outline"
+              size="icon"
+              className="ml-auto h-8 w-8"
+              onClick={() => {}}
+            >
+              {true ? (
+                <SunIcon className="w-4 h-4" />
+              ) : (
+                <MoonIcon className="w-4 h-4" />
+              )}
               <span className="sr-only">Toggle dark/light mode</span>
             </Button>
           </div>
@@ -115,7 +126,9 @@ export default function StudentAppShell({
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
-        <main className="overflow-y-scroll max-h-[calc(100vh-50px)]">{children}</main>
+        <main className="overflow-y-scroll max-h-[calc(100vh-50px)]">
+          {children}
+        </main>
       </div>
     </div>
   );
@@ -128,14 +141,62 @@ function SideMenu({
 }>) {
   return (
     <>
-      <MenuLink href="/student" icon={<HomeIcon className="w-5 h-5" />} mobile={mobile}>Podsumowanie</MenuLink>
-      <MenuLink href="/student/learn" icon={<BookOpenTextIcon className="w-5 h-5" />} mobile={mobile}>Nauka</MenuLink>
-      <MenuLink href="/student/grades" icon={<GraduationCapIcon className="w-5 h-5" />} mobile={mobile}>Oceny</MenuLink>
-      <MenuLink href="/student/timetable" icon={<CalendarDaysIcon className="w-5 h-5" />} mobile={mobile}>Plan lekcji</MenuLink>
-      <MenuLink href="/student/messages" icon={<MailIcon className="w-5 h-5" />} mobile={mobile}>Wiadomości</MenuLink>
-      <MenuLink href="/student/attendance" icon={<PercentIcon className="w-5 h-5" />} mobile={mobile}>Frekwencja</MenuLink>
-      <MenuLink href="/student/homework" icon={<ClipboardIcon className="w-5 h-5" />} mobile={mobile}>Zadania domowe</MenuLink>
-      <MenuLink href="/student/behavior" icon={<TriangleAlertIcon className="w-5 h-5" />} mobile={mobile}>Zachowanie</MenuLink>
+      <MenuLink
+        href="/student"
+        icon={<HomeIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Podsumowanie
+      </MenuLink>
+      <MenuLink
+        href="/student/learn"
+        icon={<BookOpenTextIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Nauka
+      </MenuLink>
+      <MenuLink
+        href="/student/grades"
+        icon={<GraduationCapIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Oceny
+      </MenuLink>
+      <MenuLink
+        href="/student/timetable"
+        icon={<CalendarDaysIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Plan lekcji
+      </MenuLink>
+      <MenuLink
+        href="/student/messages"
+        icon={<MailIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Wiadomości
+      </MenuLink>
+      <MenuLink
+        href="/student/attendance"
+        icon={<PercentIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Frekwencja
+      </MenuLink>
+      <MenuLink
+        href="/student/homework"
+        icon={<ClipboardIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Zadania domowe
+      </MenuLink>
+      <MenuLink
+        href="/student/behavior"
+        icon={<TriangleAlertIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Zachowanie
+      </MenuLink>
     </>
   );
 }
@@ -153,18 +214,20 @@ function MenuLink({
 }>) {
   const pathname = usePathname();
 
-  return(
+  return (
     <Link
       href={href}
       className={cn(
         mobile
           ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground"
           : "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary",
-        pathname === href ? "text-foreground bg-muted" : "text-muted-foreground",
+        pathname === href
+          ? "text-foreground bg-muted"
+          : "text-muted-foreground",
       )}
     >
       {icon}
       {children}
-    </Link>,
+    </Link>
   );
 }

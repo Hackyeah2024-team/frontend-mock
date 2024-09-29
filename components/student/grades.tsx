@@ -1,349 +1,415 @@
 import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableFooter,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
-
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-
-import { Badge } from "@/components/ui/badge"
-
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 import GradeDetails from "./GradeDetails";
-  
-  const subjects = [
-    {
-      "name": "Matematyka",
-      "teacher": "Colin Scy",
-      "grades": [
-        {
-          "grade": 6,
-          "desc": "Test z tabliczki mnożenia",
-          "semester": "1",
-          "type": {
-            "desc": "kartkówka",
-            "weight": 1,
-            "date": "2024-09-21T18:25:43"
-          }
+
+const subjects = [
+  {
+    name: "Matematyka",
+    teacher: "Colin Scy",
+    grades: [
+      {
+        grade: 6,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 1,
+          date: "2024-09-21T18:25:43",
         },
-        {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 5,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 1,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-          {
-            "grade": 3,
-            "desc": "Test z tabliczki mnożenia",
-            "semester": "1",
-            "type": {
-              "desc": "kartkówka",
-              "weight": 2,
-              "date": "2024-09-21T18:25:43"
-            }
-          },
-        {
-          "grade": 5,
-          "desc": "Sprawdzian z funkcji kwadratowej",
-          "semester": "2",
-          "type": {
-            "desc": "sprawdzian",
-            "weight": 2,
-            "date": "2025-02-10T10:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 6,
-          "desc": "Ocena śródroczna",
-          "semester": "IR",
-          "type": {
-            "desc": "ocena śródroczna",
-            "weight": 3,
-            "date": "2024-12-15T09:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 5,
-          "desc": "Ocena roczna",
-          "semester": "R",
-          "type": {
-            "desc": "ocena roczna",
-            "weight": 4,
-            "date": "2025-06-20T12:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Biologia",
-      "teacher": "Anna Nowak",
-      "grades": [
-        {
-          "grade": 4,
-          "desc": "Test z fotosyntezy",
-          "semester": "1",
-          "type": {
-            "desc": "test",
-            "weight": 2,
-            "date": "2024-10-01T09:30:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 6,
-          "desc": "Prezentacja o ekosystemach",
-          "semester": "2",
-          "type": {
-            "desc": "prezentacja",
-            "weight": 1,
-            "date": "2025-03-15T11:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 5,
-          "desc": "Ocena śródroczna",
-          "semester": "IR",
-          "type": {
-            "desc": "ocena śródroczna",
-            "weight": 3,
-            "date": "2024-12-18T10:30:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 6,
-          "desc": "Ocena roczna",
-          "semester": "R",
-          "type": {
-            "desc": "ocena roczna",
-            "weight": 4,
-            "date": "2025-06-22T13:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fizyka",
-      "teacher": "Richard Thorn",
-      "grades": [
-        {
-          "grade": 5,
-          "desc": "Sprawdzian z dynamiki",
-          "semester": "1",
-          "type": {
-            "desc": "sprawdzian",
-            "weight": 2,
-            "date": "2024-09-25T10:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 4,
-          "desc": "Projekt o falach elektromagnetycznych",
-          "semester": "2",
-          "type": {
-            "desc": "projekt",
-            "weight": 3,
-            "date": "2025-02-28T14:00:00"
-          }
+      },
+      {
+        grade: 1,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 5,
-          "desc": "Ocena śródroczna",
-          "semester": "IR",
-          "type": {
-            "desc": "ocena śródroczna",
-            "weight": 3,
-            "date": "2024-12-20T11:00:00"
-          }
+      },
+      {
+        grade: 3,
+        desc: "Test z tabliczki mnożenia",
+        semester: "1",
+        type: {
+          desc: "kartkówka",
+          weight: 2,
+          date: "2024-09-21T18:25:43",
         },
-        {
-          "grade": 6,
-          "desc": "Ocena roczna",
-          "semester": "R",
-          "type": {
-            "desc": "ocena roczna",
-            "weight": 4,
-            "date": "2025-06-18T10:45:00"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Historia",
-      "teacher": "Mary Black",
-      "grades": [
-        {
-          "grade": 6,
-          "desc": "Test z rewolucji przemysłowej",
-          "semester": "1",
-          "type": {
-            "desc": "test",
-            "weight": 2,
-            "date": "2024-10-05T12:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Sprawdzian z funkcji kwadratowej",
+        semester: "2",
+        type: {
+          desc: "sprawdzian",
+          weight: 2,
+          date: "2025-02-10T10:00:00",
         },
-        {
-          "grade": 5,
-          "desc": "Projekt o II wojnie światowej",
-          "semester": "2",
-          "type": {
-            "desc": "projekt",
-            "weight": 3,
-            "date": "2025-04-10T14:00:00"
-          }
+      },
+      {
+        grade: 6,
+        desc: "Ocena śródroczna",
+        semester: "IR",
+        type: {
+          desc: "ocena śródroczna",
+          weight: 3,
+          date: "2024-12-15T09:00:00",
         },
-        {
-          "grade": 5,
-          "desc": "Ocena śródroczna",
-          "semester": "IR",
-          "type": {
-            "desc": "ocena śródroczna",
-            "weight": 3,
-            "date": "2024-12-22T15:00:00"
-          }
+      },
+      {
+        grade: 5,
+        desc: "Ocena roczna",
+        semester: "R",
+        type: {
+          desc: "ocena roczna",
+          weight: 4,
+          date: "2025-06-20T12:00:00",
         },
-        {
-          "grade": 6,
-          "desc": "Ocena roczna",
-          "semester": "R",
-          "type": {
-            "desc": "ocena roczna",
-            "weight": 4,
-            "date": "2025-06-21T09:30:00"
-          }
-        }
-      ]
-    }
-  ];
-  
-  export function Grades() {
-    return (
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead rowSpan={2} className="w-[100px]">Przedmiot</TableHead>
-            <TableHead colSpan={3} className="text-center">Semestr I</TableHead>
-            <TableHead colSpan={2} className="text-center">Semestr II</TableHead>
-            <TableHead colSpan={2} className="text-center">Koniec roku</TableHead>
-          </TableRow>
-          <TableRow>
-            <TableHead className="text-center">Oceny bieżące I</TableHead>
-            <TableHead className="text-center">Śr.I</TableHead>
-            <TableHead className="text-center">I</TableHead>
-            <TableHead className="text-center">Oceny bieżące II</TableHead>
-            <TableHead className="text-center">Śr.II</TableHead>
-            <TableHead className="text-center">Śr.R</TableHead>
-            <TableHead className="text-center">R</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {subjects.map((subject, idx) =>
-            <TableRow key={idx}>
-              <TableCell className="font-medium text-center border-r-2">{subject.name}</TableCell>
-              <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
-                {subject.grades.filter(grade => grade.semester == "1").map((grade, idx) => (
-                    <GradeDetails key={"item"}  grade={grade} teacher={subject.teacher} subject={subject.name}></GradeDetails>
+      },
+    ],
+  },
+  {
+    name: "Biologia",
+    teacher: "Anna Nowak",
+    grades: [
+      {
+        grade: 4,
+        desc: "Test z fotosyntezy",
+        semester: "1",
+        type: {
+          desc: "test",
+          weight: 2,
+          date: "2024-10-01T09:30:00",
+        },
+      },
+      {
+        grade: 6,
+        desc: "Prezentacja o ekosystemach",
+        semester: "2",
+        type: {
+          desc: "prezentacja",
+          weight: 1,
+          date: "2025-03-15T11:00:00",
+        },
+      },
+      {
+        grade: 5,
+        desc: "Ocena śródroczna",
+        semester: "IR",
+        type: {
+          desc: "ocena śródroczna",
+          weight: 3,
+          date: "2024-12-18T10:30:00",
+        },
+      },
+      {
+        grade: 6,
+        desc: "Ocena roczna",
+        semester: "R",
+        type: {
+          desc: "ocena roczna",
+          weight: 4,
+          date: "2025-06-22T13:00:00",
+        },
+      },
+    ],
+  },
+  {
+    name: "Fizyka",
+    teacher: "Richard Thorn",
+    grades: [
+      {
+        grade: 5,
+        desc: "Sprawdzian z dynamiki",
+        semester: "1",
+        type: {
+          desc: "sprawdzian",
+          weight: 2,
+          date: "2024-09-25T10:00:00",
+        },
+      },
+      {
+        grade: 4,
+        desc: "Projekt o falach elektromagnetycznych",
+        semester: "2",
+        type: {
+          desc: "projekt",
+          weight: 3,
+          date: "2025-02-28T14:00:00",
+        },
+      },
+      {
+        grade: 5,
+        desc: "Ocena śródroczna",
+        semester: "IR",
+        type: {
+          desc: "ocena śródroczna",
+          weight: 3,
+          date: "2024-12-20T11:00:00",
+        },
+      },
+      {
+        grade: 6,
+        desc: "Ocena roczna",
+        semester: "R",
+        type: {
+          desc: "ocena roczna",
+          weight: 4,
+          date: "2025-06-18T10:45:00",
+        },
+      },
+    ],
+  },
+  {
+    name: "Historia",
+    teacher: "Mary Black",
+    grades: [
+      {
+        grade: 6,
+        desc: "Test z rewolucji przemysłowej",
+        semester: "1",
+        type: {
+          desc: "test",
+          weight: 2,
+          date: "2024-10-05T12:00:00",
+        },
+      },
+      {
+        grade: 5,
+        desc: "Projekt o II wojnie światowej",
+        semester: "2",
+        type: {
+          desc: "projekt",
+          weight: 3,
+          date: "2025-04-10T14:00:00",
+        },
+      },
+      {
+        grade: 5,
+        desc: "Ocena śródroczna",
+        semester: "IR",
+        type: {
+          desc: "ocena śródroczna",
+          weight: 3,
+          date: "2024-12-22T15:00:00",
+        },
+      },
+      {
+        grade: 6,
+        desc: "Ocena roczna",
+        semester: "R",
+        type: {
+          desc: "ocena roczna",
+          weight: 4,
+          date: "2025-06-21T09:30:00",
+        },
+      },
+    ],
+  },
+];
+
+export function Grades() {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead rowSpan={2} className="w-[100px]">
+            Przedmiot
+          </TableHead>
+          <TableHead colSpan={3} className="text-center">
+            Semestr I
+          </TableHead>
+          <TableHead colSpan={2} className="text-center">
+            Semestr II
+          </TableHead>
+          <TableHead colSpan={2} className="text-center">
+            Koniec roku
+          </TableHead>
+        </TableRow>
+        <TableRow>
+          <TableHead className="text-center">Oceny bieżące I</TableHead>
+          <TableHead className="text-center">Śr.I</TableHead>
+          <TableHead className="text-center">I</TableHead>
+          <TableHead className="text-center">Oceny bieżące II</TableHead>
+          <TableHead className="text-center">Śr.II</TableHead>
+          <TableHead className="text-center">Śr.R</TableHead>
+          <TableHead className="text-center">R</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {subjects.map((subject, idx) => (
+          <TableRow key={idx}>
+            <TableCell className="font-medium text-center border-r-2">
+              {subject.name}
+            </TableCell>
+            <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
+              {subject.grades
+                .filter((grade) => grade.semester == "1")
+                .map((grade, idx) => (
+                  <GradeDetails
+                    key={idx}
+                    grade={grade}
+                    teacher={subject.teacher}
+                    subject={subject.name}
+                  ></GradeDetails>
                 ))}
-              </TableCell>
-              <TableCell className="font-medium text-center">
-                <Badge className="bg-primary mx-1" variant="outline">{subject.grades.filter(grade => grade.semester == "1").reduce((acc, item) => [acc[0] + item.grade * item.type.weight, acc[1] + item.type.weight], [0, 0]).reduce((sum, weight) => sum / weight).toFixed(2)}</Badge>
-              </TableCell>
-              <TableCell className="font-medium text-center border-r-2">
-                {subject.grades.filter(grade => grade.semester == "IR").map(midgrade =>
-                    <Badge key={"item"} className="bg-secondary text-black mx-1" variant="outline">{midgrade.grade}</Badge>
-                )}
-              </TableCell>
-              <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
-                {subject.grades.filter(grade => grade.semester == "2").map(grade => (
-                    <GradeDetails key={"item"} grade={grade} teacher={subject.teacher} subject={subject.name}></GradeDetails>
+            </TableCell>
+            <TableCell className="font-medium text-center">
+              <Badge className="bg-primary mx-1" variant="outline">
+                {subject.grades
+                  .filter((grade) => grade.semester == "1")
+                  .reduce(
+                    (acc, item) => [
+                      acc[0] + item.grade * item.type.weight,
+                      acc[1] + item.type.weight,
+                    ],
+                    [0, 0],
+                  )
+                  .reduce((sum, weight) => sum / weight)
+                  .toFixed(2)}
+              </Badge>
+            </TableCell>
+            <TableCell className="font-medium text-center border-r-2">
+              {subject.grades
+                .filter((grade) => grade.semester == "IR")
+                .map((midgrade, idx) => (
+                  <Badge
+                    key={idx}
+                    className="bg-secondary text-black mx-1"
+                    variant="outline"
+                  >
+                    {midgrade.grade}
+                  </Badge>
                 ))}
-              </TableCell>
-              <TableCell className="font-medium text-center border-r-2">
-                <Badge className="bg-primary mx-1" variant="outline">{subject.grades.filter(grade => grade.semester == "2").reduce((acc, item) => [acc[0] + item.grade * item.type.weight, acc[1] + item.type.weight], [0, 0]).reduce((sum, weight) => sum / weight).toFixed(2)}</Badge>
-              </TableCell>
-              <TableCell className="text-center">
-                <Badge className="bg-primary mx-1" variant="outline">{subject.grades.filter(grade => grade.semester != "IR" && grade.semester != "R").reduce((acc, item) => [acc[0] + item.grade * item.type.weight, acc[1] + item.type.weight], [0, 0]).reduce((sum, weight) => sum / weight).toFixed(2)}</Badge>
-              </TableCell>
-              <TableCell className="text-center">
-                {subject.grades.filter(grade => grade.semester == "R").map(endgrade =>
-                    <Badge key={"item"} className="bg-secondary text-black mx-1" variant="outline">{endgrade.grade}</Badge>
-                )}
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    )
-  }
-  
+            </TableCell>
+            <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
+              {subject.grades
+                .filter((grade) => grade.semester == "2")
+                .map((grade, idx) => (
+                  <GradeDetails
+                    key={idx}
+                    grade={grade}
+                    teacher={subject.teacher}
+                    subject={subject.name}
+                  ></GradeDetails>
+                ))}
+            </TableCell>
+            <TableCell className="font-medium text-center border-r-2">
+              <Badge className="bg-primary mx-1" variant="outline">
+                {subject.grades
+                  .filter((grade) => grade.semester == "2")
+                  .reduce(
+                    (acc, item) => [
+                      acc[0] + item.grade * item.type.weight,
+                      acc[1] + item.type.weight,
+                    ],
+                    [0, 0],
+                  )
+                  .reduce((sum, weight) => sum / weight)
+                  .toFixed(2)}
+              </Badge>
+            </TableCell>
+            <TableCell className="text-center">
+              <Badge className="bg-primary mx-1" variant="outline">
+                {subject.grades
+                  .filter(
+                    (grade) => grade.semester != "IR" && grade.semester != "R",
+                  )
+                  .reduce(
+                    (acc, item) => [
+                      acc[0] + item.grade * item.type.weight,
+                      acc[1] + item.type.weight,
+                    ],
+                    [0, 0],
+                  )
+                  .reduce((sum, weight) => sum / weight)
+                  .toFixed(2)}
+              </Badge>
+            </TableCell>
+            <TableCell className="text-center">
+              {subject.grades
+                .filter((grade) => grade.semester == "R")
+                .map((endgrade, idx) => (
+                  <Badge
+                    key={idx}
+                    className="bg-secondary text-black mx-1"
+                    variant="outline"
+                  >
+                    {endgrade.grade}
+                  </Badge>
+                ))}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+}

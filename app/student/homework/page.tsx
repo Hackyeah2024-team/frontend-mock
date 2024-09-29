@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Dialog,
@@ -13,15 +12,10 @@ import { useState } from "react";
 
 export default function StudentHomework() {
   return (
-<div className="flex flex-col m-4">
+    <div className="flex flex-col m-4">
       <div className="flex flex-col gap-4 ">
-        <MessageCard
-          author=""
-          title="Brak zadań"
-          content=""
-        />
+        <MessageCard author="" title="Brak zadań" content="" />
       </div>
-     
     </div>
   );
 }

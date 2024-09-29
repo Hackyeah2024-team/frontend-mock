@@ -1,6 +1,6 @@
 "use client"; // Same as in app/layout.tsx
-import Image from 'next/image';
-import tablogo from '@/lib/tabular.png'
+import Image from "next/image";
+import tablogo from "@/lib/tabular.png";
 import React from "react";
 import Link from "next/link";
 import {
@@ -13,7 +13,7 @@ import {
   MailIcon,
   UsersIcon,
   PresentationIcon,
-  SettingsIcon
+  SettingsIcon,
 } from "lucide-react";
 // import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import HackYeahBanner from '@/components/common/Banner';
+import HackYeahBanner from "@/components/common/Banner";
 // import { useDarkMode } from "usehooks-ts";
 
 export default function StudentAppShell({
@@ -46,12 +46,23 @@ export default function StudentAppShell({
           <div className="flex h-[40px] items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-semibold">
               <span className="relative">
-                <Image src={tablogo} alt="Tabular logo" height={90}/>
-                <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">Teacher</span>
+                <Image src={tablogo} alt="Tabular logo" height={90} />
+                <span className="absolute -right-8 top-[43.5px] font-light text-sm text-muted-foreground">
+                  Teacher
+                </span>
               </span>
             </Link>
-            <Button variant="outline" size="icon" className="ml-auto h-8 w-8" onClick={() => {}}>
-              {true ? <SunIcon className="w-4 h-4" /> : <MoonIcon className="w-4 h-4" />}
+            <Button
+              variant="outline"
+              size="icon"
+              className="ml-auto h-8 w-8"
+              onClick={() => {}}
+            >
+              {true ? (
+                <SunIcon className="w-4 h-4" />
+              ) : (
+                <MoonIcon className="w-4 h-4" />
+              )}
               <span className="sr-only">Toggle dark/light mode</span>
             </Button>
           </div>
@@ -113,7 +124,9 @@ export default function StudentAppShell({
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
-        <main className="overflow-y-scroll max-h-[calc(100vh-50px)]">{children}</main>
+        <main className="overflow-y-scroll max-h-[calc(100vh-50px)]">
+          {children}
+        </main>
       </div>
     </div>
   );
@@ -126,12 +139,48 @@ function SideMenu({
 }>) {
   return (
     <>
-      <MenuLink href="/teacher" icon={<HomeIcon className="w-5 h-5" />} mobile={mobile}>Podsumowanie</MenuLink>
-      <MenuLink href="/teacher/timetable" icon={<CalendarDaysIcon className="w-5 h-5" />} mobile={mobile}>Plan zajęć</MenuLink>
-      <MenuLink href="/teacher/classes" icon={<PresentationIcon className="w-5 h-5" />} mobile={mobile}>Klasy</MenuLink>
-      <MenuLink href="/teacher/students" icon={<UsersIcon className="w-5 h-5" />} mobile={mobile}>Uczniowie</MenuLink>
-      <MenuLink href="/teacher/messages" icon={<MailIcon className="w-5 h-5" />} mobile={mobile}>Wiadomości</MenuLink>
-      <MenuLink href="/teacher/management" icon={<SettingsIcon className="w-5 h-5" />} mobile={mobile}>Zarządzanie</MenuLink>
+      <MenuLink
+        href="/teacher"
+        icon={<HomeIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Podsumowanie
+      </MenuLink>
+      <MenuLink
+        href="/teacher/timetable"
+        icon={<CalendarDaysIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Plan zajęć
+      </MenuLink>
+      <MenuLink
+        href="/teacher/classes"
+        icon={<PresentationIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Klasy
+      </MenuLink>
+      <MenuLink
+        href="/teacher/students"
+        icon={<UsersIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Uczniowie
+      </MenuLink>
+      <MenuLink
+        href="/teacher/messages"
+        icon={<MailIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Wiadomości
+      </MenuLink>
+      <MenuLink
+        href="/teacher/management"
+        icon={<SettingsIcon className="w-5 h-5" />}
+        mobile={mobile}
+      >
+        Zarządzanie
+      </MenuLink>
     </>
   );
 }
@@ -149,18 +198,20 @@ function MenuLink({
 }>) {
   const pathname = usePathname();
 
-  return(
+  return (
     <Link
       href={href}
       className={cn(
         mobile
           ? "mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground"
           : "flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary",
-        pathname === href ? "text-foreground bg-muted" : "text-muted-foreground",
+        pathname === href
+          ? "text-foreground bg-muted"
+          : "text-muted-foreground",
       )}
     >
       {icon}
       {children}
-    </Link>,
+    </Link>
   );
 }
