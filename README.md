@@ -3,6 +3,9 @@ Tabular is a modern solution to help schools and students with a learning proces
 Its main goal is enhancing education with data analysis and machine learning in order
 to provide personalized learninig paths and hints for users.
 
+## Project showcase
+[Tabular](https://tabular.frankoslaw.top/)
+
 ## Technology
 This mock user interface is made using [Next.js](https://nextjs.org/) with [Tailwind](https://tailwindcss.com/) and [Shadcn/UI](https://ui.shadcn.com/)
 for basic components. It is meant to show possible layout and views available in the real application.
