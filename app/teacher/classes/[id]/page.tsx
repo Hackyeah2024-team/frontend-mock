@@ -1,8 +1,16 @@
-import StudentsTable from "@/components/teacher/StudentsTable";
-import StudentsTableMultigrade from "@/components/teacher/StudentsTableMultigrade";
+import StudentsTable, { GradeData, Problem } from "@/components/teacher/StudentsTable";
 
 export default function ClassView({ params }: { params: { id: string } }) {
-  return <StudentsTableMultigrade data={fetchClassData(params.id)['students']}/>;
+   const class_data = fetchClassData(params.id)['students']
+      .map((student: any): { student: string, gradeData: GradeData[], problem: Problem } => {
+         return {
+            student: student.student, 
+            gradeData: student.grades.map((grade: any) => {return {grade}}), 
+            problem: student.problem
+         }
+      })
+
+   return <StudentsTable data={class_data} />
 }
 
 
@@ -12,8 +20,12 @@ function fetchClassData(cid: string){
        "teacher":"Piotr Lubczyk",
        "students":[
           {
-             "student":"Anna Kowalczyk",
-             "problem":"Równanie kwadratowe",
+         "student":"Anna Kowalczyk",
+         "problem": {
+         "problem": "Trygonometria",
+         "problemDesc": "U ucznia występują problemy z transformowaniem wzorów trygonometrycznych",
+         "problemCause": ["Ocena z sprawdzianu poniżej średniej"]
+         },
              "grades":[
                 {
                    "grade":4,
@@ -39,7 +51,11 @@ function fetchClassData(cid: string){
           },
           {
              "student":"Marek Zieliński",
-             "problem":"Równanie kwadratowe",
+             "problem":{
+               "problem":"Równanie kwadratowe",
+               "problemDesc":"U ucznia występują problemy z rownaniami kwadratowymi",
+               "problemCause":["niskie wyniki z zadań zawierających równania kwadratowe"]
+            },
              "grades":[
                 {
                    "grade":3,
@@ -100,7 +116,11 @@ function fetchClassData(cid: string){
           },
           {
              "student":"Jakub Nowakowski",
-             "problem":"Geometria",
+             "problem":{
+               "problem":"Geometria",
+               "problemDesc":"U ucznia występują problemy z geometrią",
+               "problemCause":["ocena ze sprawdzianu poniżej średniej", "nieobecność na kartkówce"]
+             },
              "grades":[
                 {
                    "grade":2,

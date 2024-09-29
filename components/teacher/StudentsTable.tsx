@@ -11,34 +11,33 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogFooter,
 } from "@/components/ui/dialog";
 
 import GradeDetails from "../student/GradeDetails";
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Grade } from "../student/GradeDetails"
 
-interface Problem{
-  problem: string
-  problemDesc: string
-  problemCause: Array<string>
+export type Problem = {
+  problem: string;
+  problemDesc: string;
+  problemCause: string[];
 }
 
-function n(n: Problem){
-  if(n == null){
-    return 1
-  }else if(n.problemCause == null){
-    return 1
-  }
-  return 0
+export type GradeData = { grade: Grade; teacher?: string; subject?: string };
+
+function isProblemEmpty(problem: Problem | null): boolean {
+  return problem == null || problem.problemCause == null;
 }
 
-export default function StudentsTable({data} : {data: {student: string, gradeData: {grade: Grade, teacher: string, subject: string}[], problem: Problem}[]}) {
+function getAvg(grades: GradeData[]): number {
+  const sum = grades.reduce((acc, { grade }) => acc + grade.grade, 0);
+  return sum / grades.length;
+}
+
+export default function StudentsTable({data} : {data: {student: string, gradeData: GradeData[], problem: Problem}[]}) {
 
   return (
     <Table>
@@ -57,16 +56,16 @@ export default function StudentsTable({data} : {data: {student: string, gradeDat
             <TableCell className="font-medium text-center flex gap-1 justify-start flex-wrap">
               {gradeData.map(({grade,teacher,subject},idx) => (
                 <GradeDetails
-                key={idx}
-                grade={grade}
-                teacher={teacher}
-                subject={subject}
+                  key={idx}
+                  grade={grade}
+                  teacher={teacher || ""}
+                  subject={subject || ""}
                 />
               ))}
             </TableCell>
             <TableCell className="max-w-12">
               <div className="flex flex-row items-center gap-x-2">
-                {n(problem)?null:
+                {isProblemEmpty(problem)?null:
                 <Dialog>
                 <DialogTrigger asChild>
                   <Badge className="bg-muted cursor-pointer">{problem.problem}</Badge>
@@ -100,10 +99,9 @@ export default function StudentsTable({data} : {data: {student: string, gradeDat
                 </DialogContent>
               </Dialog>
             }
-                {/* <Badge className="bg-primary">+1</Badge> */}
               </div>
             </TableCell>
-            <TableCell className="text-center max-w-8"></TableCell>
+            <TableCell className="text-center max-w-8">{getAvg(gradeData).toPrecision(3) }</TableCell>
           </TableRow>
         ))}
       </TableBody>
