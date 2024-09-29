@@ -15,7 +15,8 @@ function addDay(date: Date, n: number) {
 export default function StudentGrades() {
   const d: Date = new Date('2022-01-01')
 
-  return <div className="flex flex-row justify-center items-center">
+  return <div>
+    <div className="flex flex-row justify-center items-center">
         <div className="grid grid-rows-7 grid-flow-col gap-1 w-11/12">
             <p>PON</p>
             <p>WT</p>
@@ -32,6 +33,24 @@ export default function StudentGrades() {
           ))}
         </div>
       </div>
+      <div className="flex justify-center items-center">
+      <div className="flex justify-between w-10/12">
+        <p>Sty</p>
+        <p>Lut</p>
+        <p>Mar</p>
+        <p>Kwi</p>
+        <p>Maj</p>
+        <p>Czerw</p>
+        <p>Lip</p>
+        <p>Sie</p>
+        <p>Wrz</p>
+        <p>Paz</p>
+        <p>Lis</p>
+        <p>Gru</p>
+        </div>
+        </div>
+      </div>
+
 }
 
 function fetchAttendance(){
